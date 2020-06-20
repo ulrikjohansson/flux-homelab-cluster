@@ -1,0 +1,18 @@
+bases:
+- ../base
+nameprefix: coredns-
+commonLabels:
+  app: coredns
+  owner: ulrik
+#patchesStrategicMerge:
+#  - app.yaml 
+configMapGenerator:
+   - name: config
+     behavior: merge
+     literals:
+       - color=coredns
+       - bla=coredns
+images:
+  - name: application
+    newName: coredns/coredns
+    newtag: latest
